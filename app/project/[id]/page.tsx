@@ -152,7 +152,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
                 style={{ flex: 1, width: '100%', border: 'none', background: 'var(--bg-dark)' }}
                 title="Preview"
                 // We allow scripts/modals so the user's HTML can be interactive
-                sandbox="allow-scripts allow-modals allow-same-origin allow-forms"
+                sandbox="allow-scripts allow-modals allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
             />
         </div>
     );
