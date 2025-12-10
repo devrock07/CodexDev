@@ -2,7 +2,7 @@
 
 **CodexDev** is a premium, high-performance code sharing and publishing platform designed for teams and developers. It transforms raw HTML into beautiful, auto-themed webpages and provides a centralized repository for your organization's most valuable code assets.
 
-![CodexDev Banner](https://via.placeholder.com/1200x400.png?text=CodexDev+Premium+Platform)
+![CodexDev Banner](https://i.ibb.co/V0HV481J/a-03912a6c7d0e7b9bd68662224ccb998d.gif)
 
 ## 🚀 Features
 
