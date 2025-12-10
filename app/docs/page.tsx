@@ -13,7 +13,7 @@ export default function DocsPage() {
                 <section style={{ marginBottom: '3rem' }}>
                     <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: 'var(--accent-primary)' }}>Getting Started</h2>
                     <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                        Codex CDN is a centralized repository for your organization's code snippets, configurations, and reusable modules.
+                        Codex CDN is a centralized repository for your organization's code, configurations, and reusable modules.
                         It is designed to facilitate easy sharing and discovery of technical assets.
                     </p>
                 </section>
@@ -23,14 +23,14 @@ export default function DocsPage() {
                     <div className="glass-card" style={{ marginBottom: '1.5rem' }}>
                         <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Browsing Code</h3>
                         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                            Navigate to the <Link href="/browse" style={{ color: 'var(--accent-primary)' }}>Browse</Link> page to search for snippets.
+                            Navigate to the <Link href="/browse" style={{ color: 'var(--accent-primary)' }}>Browse</Link> page to search for codes.
                             You can filter by language, tags, or keywords in the title.
                         </p>
                     </div>
                     <div className="glass-card">
-                        <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Using Snippets</h3>
+                        <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Using Code</h3>
                         <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                            Click on any snippet card to view the full source. Use the "Copy" functionality (coming soon) or select the text to paste directly into your IDE.
+                            Click on any code card to view the full source. Use the "Copy" functionality (coming soon) or select the text to paste directly into your IDE.
                         </p>
                     </div>
                 </section>
@@ -50,13 +50,13 @@ export default function DocsPage() {
                         <li style={{ marginBottom: '1rem', display: 'flex', gap: '1rem' }}>
                             <span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>2.</span>
                             <span style={{ color: 'var(--text-secondary)' }}>
-                                Go to your Dashboard to manage existing snippets.
+                                Go to your Dashboard to manage existing projects.
                             </span>
                         </li>
                         <li style={{ marginBottom: '1rem', display: 'flex', gap: '1rem' }}>
                             <span style={{ color: 'var(--accent-secondary)', fontWeight: 'bold' }}>3.</span>
                             <span style={{ color: 'var(--text-secondary)' }}>
-                                Click "New Snippet" to publish code. Supports standard syntax highlighting for JS, TS, Python, etc.
+                                Click "New Project" to publish code. Supports standard syntax highlighting for JS, TS, Python, etc.
                             </span>
                         </li>
                     </ul>

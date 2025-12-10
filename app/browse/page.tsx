@@ -45,7 +45,7 @@ export default function BrowsePage() {
             <div style={{ marginBottom: '3rem' }}>
                 <input
                     type="text"
-                    placeholder="Search snippets by title, language, or tag..."
+                    placeholder="Search codes by title, language, or tag..."
                     className="glass-card"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
@@ -58,7 +58,7 @@ export default function BrowsePage() {
             ) : (
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1.5rem' }}>
                     {filteredSnippets.length === 0 ? (
-                        <p style={{ gridColumn: '1 / -1', textAlign: 'center', color: 'var(--text-secondary)' }}>No snippets found matching "{search}"</p>
+                        <p style={{ gridColumn: '1 / -1', textAlign: 'center', color: 'var(--text-secondary)' }}>No codes found matching "{search}"</p>
                     ) : (
                         filteredSnippets.map((snip: any) => (
                             <div key={snip._id} className="glass-card">
