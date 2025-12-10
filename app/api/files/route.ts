@@ -5,17 +5,9 @@ import { cookies } from 'next/headers';
 
 export const dynamic = 'force-dynamic';
 
-// GET: List all files (staff only)
+// GET: List all files (public for now - add auth later if needed)
 export async function GET(request: NextRequest) {
     try {
-        // Check authentication
-        const cookieStore = await cookies();
-        const token = cookieStore.get('auth-token');
-
-        if (!token) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-        }
-
         await dbConnect();
 
         const files = await File.find({}).sort({ createdAt: -1 }).lean();
@@ -27,17 +19,9 @@ export async function GET(request: NextRequest) {
     }
 }
 
-// POST: Create file record (called after Uploadthing upload)
+// POST: Create file record (called after upload)
 export async function POST(request: NextRequest) {
     try {
-        // Check authentication
-        const cookieStore = await cookies();
-        const token = cookieStore.get('auth-token');
-
-        if (!token) {
-            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-        }
-
         await dbConnect();
 
         const body = await request.json();
