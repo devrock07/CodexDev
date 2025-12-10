@@ -154,14 +154,6 @@ export default async function CDNFilePage({ params }: { params: Promise<{ id: st
                         </div>
                         <div>
                             <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
-                                Downloads
-                            </div>
-                            <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
-                                {file.downloads}
-                            </div>
-                        </div>
-                        <div>
-                            <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
                                 Uploaded
                             </div>
                             <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>

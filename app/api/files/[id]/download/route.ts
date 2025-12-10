@@ -19,24 +19,32 @@ export async function GET(
             return NextResponse.json({ error: 'File not found' }, { status: 404 });
         }
 
-        // Increment download counter
-        await File.findByIdAndUpdate(id, { $inc: { downloads: 1 } });
+        // Extract base64 data from data URL (format: data:image/png;base64,...)
+        const matches = file.fileUrl.match(/^data:([^;]+);base64,(.+)$/);
 
-        // Extract base64 data from data URL
-        const base64Data = file.fileUrl.split(',')[1];
+        if (!matches) {
+            console.error('Invalid data URL format');
+            return NextResponse.json({ error: 'Invalid file format' }, { status: 500 });
+        }
+
+        const mimeType = matches[1];
+        const base64Data = matches[2];
         const buffer = Buffer.from(base64Data, 'base64');
 
         // Return file as binary with proper headers
         return new NextResponse(buffer, {
             headers: {
-                'Content-Type': file.mimeType,
-                'Content-Disposition': `attachment; filename="${file.originalName}"`,
+                'Content-Type': mimeType,
+                'Content-Disposition': `inline; filename="${file.originalName}"`,
                 'Content-Length': buffer.length.toString(),
                 'Cache-Control': 'public, max-age=31536000',
             },
         });
     } catch (error) {
         console.error('Error serving file:', error);
-        return NextResponse.json({ error: 'Failed to serve file' }, { status: 500 });
+        return NextResponse.json({
+            error: 'Failed to serve file',
+            details: error instanceof Error ? error.message : 'Unknown error'
+        }, { status: 500 });
     }
 }

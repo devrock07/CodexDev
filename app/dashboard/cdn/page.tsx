@@ -296,8 +296,6 @@ export default function CDNDashboard() {
                                 color: 'var(--text-tertiary)'
                             }}>
                                 <span>{(file.fileSize / 1024).toFixed(1)}KB</span>
-                                <span>•</span>
-                                <span>{file.downloads} downloads</span>
                             </div>
 
                             {/* Actions */}
