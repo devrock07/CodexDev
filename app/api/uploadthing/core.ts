@@ -53,7 +53,7 @@ export const ourFileRouter = {
     // ZIP uploader
     zipUploader: f({
         "application/zip": {
-            maxFileSize: "16MB",
+            maxFileSize: "64MB",
             maxFileCount: 3
         }
     })

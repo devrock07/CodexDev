@@ -152,45 +152,7 @@ export default function BrowsePage() {
                     )}
                 </div>
 
-                {/* Filter Chips */}
-                {availableLanguages.length > 0 && (
-                    <div style={{
-                        display: 'flex',
-                        gap: '0.75rem',
-                        flexWrap: 'wrap',
-                        marginBottom: '2rem'
-                    }}>
-                        <button
-                            onClick={() => setSelectedLanguage(null)}
-                            className={selectedLanguage === null ? 'badge badge-primary' : 'badge'}
-                            style={{
-                                cursor: 'pointer',
-                                padding: '0.5rem 1rem',
-                                fontSize: '0.875rem',
-                                transition: 'all var(--transition-base)',
-                                border: selectedLanguage === null ? '1px solid var(--accent-primary)' : '1px solid var(--card-border)'
-                            }}
-                        >
-                            All
-                        </button>
-                        {availableLanguages.map(lang => (
-                            <button
-                                key={lang}
-                                onClick={() => setSelectedLanguage(lang)}
-                                className={selectedLanguage === lang ? 'badge badge-primary' : 'badge'}
-                                style={{
-                                    cursor: 'pointer',
-                                    padding: '0.5rem 1rem',
-                                    fontSize: '0.875rem',
-                                    transition: 'all var(--transition-base)',
-                                    border: selectedLanguage === lang ? '1px solid var(--accent-primary)' : '1px solid var(--card-border)'
-                                }}
-                            >
-                                {lang}
-                            </button>
-                        ))}
-                    </div>
-                )}
+
             </div>
 
             {/* Results */}
