@@ -36,9 +36,9 @@ export default function CDNDashboard() {
         try {
             const file = selectedFiles[0];
 
-            // Check file size (max 5MB for base64 storage)
-            if (file.size > 5 * 1024 * 1024) {
-                alert('File too large. Maximum size is 5MB.');
+            // Check file size (max 64MB)
+            if (file.size > 64 * 1024 * 1024) {
+                alert('File too large. Maximum size is 64MB.');
                 setUploading(false);
                 return;
             }
@@ -202,7 +202,7 @@ export default function CDNDashboard() {
                     {uploading ? 'Uploading...' : 'Upload File'}
                 </label>
                 <p style={{ color: 'var(--text-tertiary)', marginTop: '1rem', fontSize: '0.875rem' }}>
-                    Supports images (PNG, JPG, GIF, WEBP) and ZIP files up to 16MB
+                    Supports images (PNG, JPG, GIF, WEBP) and ZIP files up to 64MB
                 </p>
             </div>
 
