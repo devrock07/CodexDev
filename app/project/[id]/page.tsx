@@ -136,7 +136,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ id: st
     </style>
   `;
 
-    const previewContent = themeCSS + project.code;
+    const previewContent = themeCSS + '<base target="_blank">' + project.code;
 
     return (
         <div style={{ width: '100vw', height: '100vh', display: 'flex', flexDirection: 'column' }}>

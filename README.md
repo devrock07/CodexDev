@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodexDev
 
-## Getting Started
+**CodexDev** is a premium, high-performance code sharing and publishing platform designed for teams and developers. It transforms raw HTML into beautiful, auto-themed webpages and provides a centralized repository for your organization's most valuable code assets.
 
-First, run the development server:
+![CodexDev Banner](https://via.placeholder.com/1200x400.png?text=CodexDev+Premium+Platform)
 
+## 🚀 Features
+
+-   **HTML Publishing Engine**: Upload raw HTML and watch it instantly transform into a premium, dark-mode webpage with our custom "Glassmorphism" theme engine.
+-   **Auto-Theming**: No CSS required. The platform injects professional typography (Outfit), colors, and component styles automatically.
+-   **Staff Dashboard**: Secure "Restricted Access" portal for staff to manage, edit, and delete projects.
+-   **Security First**:
+    -   Timing-attack mitigation on login.
+    -   Credential rotation scripts.
+    -   Hardened security headers (CSP, X-Frame-Options).
+-   **Fast & SEO Ready**: Built on Next.js 16 with server-side rendering and dynamic metadata for rich social embeds (Discord/Twitter cards).
+
+## 🛠️ Tech Stack
+
+-   **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+-   **Language**: TypeScript
+-   **Database**: MongoDB Atlas (Mongoose)
+-   **Styling**: Vanilla CSS (Premium Glassmorphism Theme)
+-   **Auth**: Custom JWT + Bcrypt (HttpOnly Cookies)
+
+## ⚡ Getting Started
+
+### 1. Clone & Install
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/devrock07/CodexDev.git
+cd CodexDev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Environment Setup
+Create a `.env.local` file in the root directory:
+```env
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_super_secure_secret
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Database Setup
+Run the seed script to create the initial Admin user:
+```bash
+node scripts/seed-user.js
+```
+*Note: This creates the secure admin user `devrock69`.*
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run Locally
+```bash
+npm run dev
+```
+Visit `http://localhost:3000` to browse the library.
 
-## Learn More
+## 🌍 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is optimized for deployment on **Netlify** or **Vercel**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  Push code to GitHub.
+2.  Import project in Netlify/Vercel.
+3.  Add `MONGODB_URI` and `JWT_SECRET` to the Environment Variables.
+4.  Deploy!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🫡 Credits & Authors
 
-## Deploy on Vercel
+**Made with ❤️ by [devrock07](https://github.com/devrock07)** for **CodexDev**.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*© 2025 CodexDev. All rights reserved.*
