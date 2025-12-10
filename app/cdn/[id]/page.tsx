@@ -21,20 +21,23 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
         };
     }
 
+    // Use download endpoint URL for Discord embeds
+    const fileUrl = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/files/${id}/download`;
+
     return {
         title: `${file.originalName} - Codex CDN`,
-        description: `Download ${file.originalName} from Codex CDN`,
+        description: `Download ${file.originalName} from Codex CDN - ${(file.fileSize / 1024).toFixed(1)}KB`,
         openGraph: {
             title: file.originalName,
             description: `Download from Codex CDN - ${(file.fileSize / 1024).toFixed(1)}KB`,
-            images: file.fileType === 'image' ? [file.fileUrl] : [],
+            images: file.fileType === 'image' ? [fileUrl] : [],
             type: 'website',
         },
         twitter: {
             card: file.fileType === 'image' ? 'summary_large_image' : 'summary',
             title: file.originalName,
             description: `Download from Codex CDN - ${(file.fileSize / 1024).toFixed(1)}KB`,
-            images: file.fileType === 'image' ? [file.fileUrl] : [],
+            images: file.fileType === 'image' ? [fileUrl] : [],
         },
     };
 }
@@ -59,6 +62,9 @@ export default async function CDNFilePage({ params }: { params: Promise<{ id: st
             </main>
         );
     }
+
+    // Use download endpoint for file access
+    const downloadUrl = `/api/files/${id}/download`;
 
     return (
         <main className="container" style={{ padding: '2rem 1.5rem', minHeight: '100vh' }}>
@@ -89,7 +95,7 @@ export default async function CDNFilePage({ params }: { params: Promise<{ id: st
                             background: 'var(--card-bg-hover)'
                         }}>
                             <img
-                                src={file.fileUrl}
+                                src={downloadUrl}
                                 alt={file.originalName}
                                 style={{ width: '100%', height: 'auto', display: 'block' }}
                             />
@@ -166,7 +172,7 @@ export default async function CDNFilePage({ params }: { params: Promise<{ id: st
 
                     {/* Download Button */}
                     <a
-                        href={file.fileUrl}
+                        href={downloadUrl}
                         download={file.originalName}
                         className="btn btn-primary"
                         style={{
