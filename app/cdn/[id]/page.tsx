@@ -24,29 +24,17 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     // Use download endpoint URL for Discord embeds
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
     const fileUrl = `${baseUrl}/api/files/${id}/download`;
-    const pageUrl = `${baseUrl}/cdn/${id}`;
 
     return {
-        title: `${file.originalName} - Codex CDN`,
-        description: `${file.fileType === 'image' ? 'View image' : 'Download file'} from Codex CDN - ${(file.fileSize / 1024).toFixed(1)}KB`,
+        title: file.originalName,
+        description: `${(file.fileSize / 1024).toFixed(1)}KB - Codex CDN`,
         openGraph: {
             title: file.originalName,
-            description: `${file.fileType === 'image' ? 'View image' : 'Download file'} from Codex CDN`,
-            url: pageUrl,
-            images: file.fileType === 'image' ? [
-                {
-                    url: fileUrl,
-                    width: 1200,
-                    height: 630,
-                    alt: file.originalName,
-                }
-            ] : [],
-            type: 'website',
+            description: `${(file.fileSize / 1024).toFixed(1)}KB`,
+            images: file.fileType === 'image' ? [fileUrl] : [],
         },
         twitter: {
-            card: file.fileType === 'image' ? 'summary_large_image' : 'summary',
-            title: file.originalName,
-            description: `${file.fileType === 'image' ? 'View image' : 'Download file'} from Codex CDN`,
+            card: 'summary_large_image',
             images: file.fileType === 'image' ? [fileUrl] : [],
         },
     };
@@ -160,6 +148,14 @@ export default async function CDNFilePage({ params }: { params: Promise<{ id: st
                             </div>
                             <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
                                 {(file.fileSize / 1024).toFixed(1)} KB
+                            </div>
+                        </div>
+                        <div>
+                            <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>
+                                Downloads
+                            </div>
+                            <div style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
+                                {file.downloads}
                             </div>
                         </div>
                         <div>

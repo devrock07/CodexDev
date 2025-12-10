@@ -19,6 +19,9 @@ export async function GET(
             return NextResponse.json({ error: 'File not found' }, { status: 404 });
         }
 
+        // Increment download counter
+        await File.findByIdAndUpdate(id, { $inc: { downloads: 1 } });
+
         // Extract base64 data from data URL (format: data:image/png;base64,...)
         const matches = file.fileUrl.match(/^data:([^;]+);base64,(.+)$/);
 
